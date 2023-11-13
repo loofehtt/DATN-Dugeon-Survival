@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float speed = 1f;
-    private Vector2 moveDirection;
+    //Component
     private Rigidbody2D rb;
-    // Start is called before the first frame update
+
+    //Variable
+    [SerializeField] private float speed = 1f;
+    
+    //Singleton
+    private InputManager inputManager;
+
+    private void Awake()
+    {
+        inputManager = InputManager.Instance;
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        GetInput();
+        //GetInput();
     }
 
     private void FixedUpdate()
@@ -24,16 +33,8 @@ public class Movement : MonoBehaviour
         Moving();
     }
 
-    void GetInput()
-    {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-
-        moveDirection = new Vector2(x, y).normalized;
-    }
-
     void Moving()
     {
-        rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
+        rb.velocity = new Vector2(inputManager.GetInput().x * speed, inputManager.GetInput().y * speed);
     }
 }
