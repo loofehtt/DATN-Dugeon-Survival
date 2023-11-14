@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     //Component
     private Rigidbody2D rb;
-
+    private SpriteRenderer sr;
     //Variable
     [SerializeField] private float speed = 1f;
     
@@ -21,11 +21,8 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
+        sr = GetComponent<SpriteRenderer>();
 
-    void Update()
-    {
-        //GetInput();
     }
 
     private void FixedUpdate()
@@ -35,6 +32,18 @@ public class Movement : MonoBehaviour
 
     void Moving()
     {
-        rb.velocity = new Vector2(inputManager.GetInput().x * speed, inputManager.GetInput().y * speed);
+        Vector2 direction = inputManager.GetKeyboardInput().normalized;
+        rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
+
+        Vector2 scale = transform.localScale;
+
+        if (direction.x < 0)
+        {
+            sr.flipX = true;
+        }
+        else if (direction.x > 0)
+        {
+            sr.flipX = false;
+        }
     }
 }
