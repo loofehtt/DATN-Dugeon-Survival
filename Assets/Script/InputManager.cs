@@ -13,8 +13,6 @@ public class InputManager : Singleton<InputManager>
 
     public Vector3 GetMousePos()
     {
-        /*Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 10f;*/
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 }

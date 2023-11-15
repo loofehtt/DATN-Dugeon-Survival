@@ -27,15 +27,13 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Moving();
+        Running();
     }
 
-    void Moving()
+    void Running()
     {
         Vector2 direction = inputManager.GetKeyboardInput().normalized;
         rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
-
-        Vector2 scale = transform.localScale;
 
         if (direction.x < 0)
         {
