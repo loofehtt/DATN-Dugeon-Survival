@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class InputManager : Singleton<InputManager>
 {
-    public Vector2 GetKeyboardInput()
+    public Vector2 KeyboardInput {  get; private set; }
+    public Vector2 MousePos { get; private set; }
+    public float OnFiring {  get; private set; }
+
+    private void Update()
+    {
+        GetLeftMouseDown();
+    }
+
+    private void FixedUpdate()
+    {
+        GetKeyboardInput();
+        GetMousePos();
+    }
+    protected virtual void GetKeyboardInput()
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-        return new Vector2(x, y);
+        KeyboardInput = new Vector2(x, y);
     }
 
-    public Vector3 GetMousePos()
+    protected virtual void GetMousePos()
     {
-        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    protected virtual void GetLeftMouseDown()
+    {
+        OnFiring = Input.GetAxis("Fire1");
     }
 }
