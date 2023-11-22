@@ -7,9 +7,11 @@ public class WeaponHolder : MonoBehaviour
     //component
     [SerializeField] private SpriteRenderer characterSR;
     [SerializeField] private SpriteRenderer weaponSR;
+    private Animator anim;
 
     //variable
     private Vector2 PointerPos;
+    private bool attackBlocked;
 
     //Singleton
     private InputManager inputManager;
@@ -17,6 +19,19 @@ public class WeaponHolder : MonoBehaviour
     private void Awake()
     {
         inputManager = InputManager.Instance;
+    }
+
+    private void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
     }
 
     private void FixedUpdate()
@@ -30,18 +45,18 @@ public class WeaponHolder : MonoBehaviour
         //Flip weapon
         Vector2 scale = transform.localScale;
 
-        if(direction.x < 0)
+        if (direction.x < 0)
         {
             scale.y = -1;
         }
-        else 
+        else
         {
             scale.y = 1;
         }
         transform.localScale = scale;
 
         //Sorting layer default = 10
-        if(transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180)
+        if (transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180)
         {
             weaponSR.sortingOrder = characterSR.sortingOrder - 1;
         }
@@ -50,4 +65,24 @@ public class WeaponHolder : MonoBehaviour
             weaponSR.sortingOrder = characterSR.sortingOrder + 1;
         }
     }
+
+    public void Attack()
+    {
+        if (attackBlocked)
+        {
+            return;
+        }
+        anim.SetBool("attack", true);
+        attackBlocked = true;
+        StartCoroutine(DelayAttack());
+    }
+
+    private IEnumerator DelayAttack()
+    {
+        yield return new WaitForSeconds(0.3f);
+        anim.SetBool("attack", false);
+        yield return new WaitForSeconds(0.5f);
+        attackBlocked = false;
+    }
+
 }
