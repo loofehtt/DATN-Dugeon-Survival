@@ -28,7 +28,7 @@ public class PlayerMoveState : PlayerIdleState
     {
         base.LogicUpdate();
 
-        player.SetVelocity(input * playerData.movementVelocity);
+        player.SetVelocity(input * playerData.moveSpeed);
 
         player.CheckShouldFlip(input.x);
 

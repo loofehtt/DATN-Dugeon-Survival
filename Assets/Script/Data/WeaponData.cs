@@ -8,6 +8,7 @@ public class WeaponData : ScriptableObject
     [Header("Sprite")]
     public Sprite weaponSprite;
     public Transform bulletPrefab;
+    public Transform explodeFx;
     [Header("Property")]
     public int damage = 1;
     public float delay = 1f;
