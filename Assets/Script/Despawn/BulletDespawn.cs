@@ -14,6 +14,7 @@ public class BulletDespawn : Despawn
     {
         if (collision != null)
         {
+            Debug.Log("Collison");
             BulletPool.Instance.Despawn(transform);
         }
     }

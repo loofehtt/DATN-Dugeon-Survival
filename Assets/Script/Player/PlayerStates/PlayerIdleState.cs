@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerIdleState : PlayerState
 {
     protected Vector2 input;
-    public PlayerIdleState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+    public PlayerIdleState(Player player, PlayerStateMachine stateMachine, PlayerSO playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
 

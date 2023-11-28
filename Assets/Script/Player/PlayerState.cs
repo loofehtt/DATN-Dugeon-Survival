@@ -6,13 +6,13 @@ public class PlayerState
 {
     protected Player player;
     protected PlayerStateMachine stateMachine;
-    protected PlayerData playerData;
+    protected PlayerSO playerData;
 
     //protected float startTime;
 
     private string animBoolName;
 
-    public PlayerState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
+    public PlayerState(Player player, PlayerStateMachine stateMachine, PlayerSO playerData, string animBoolName)
     {
         this.player = player;
         this.stateMachine = stateMachine;

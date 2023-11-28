@@ -6,7 +6,7 @@ public class FxPool : ObjectPool<FxPool>
 {
     public override Transform Spawn(Vector3 spawnPos, Quaternion rotation)
     {
-        Transform newPrefab = GetObjectFromPool(WeaponManager.Instance.weaponData.explodeFx);
+        Transform newPrefab = GetObjectFromPool(WeaponManager.Instance.WeaponData.explodeFx);
         newPrefab.SetPositionAndRotation(spawnPos, rotation);
         newPrefab.parent = this.transform;
         newPrefab.gameObject.SetActive(true);

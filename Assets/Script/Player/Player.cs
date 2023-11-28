@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public Animator Anim { get; private set; }
 
     [SerializeField]
-    private PlayerData playerData;
+    private PlayerSO playerData;
 
     public Rigidbody2D RB { get; private set; }
 

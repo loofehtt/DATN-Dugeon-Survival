@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class WeaponManager : Singleton<WeaponManager>
 {
     //Component
-    [SerializeField]
-    public WeaponData weaponData;
+    public WeaponSO WeaponData { get; private set; }
     private SpriteRenderer wp;
 
     //Variable
     private bool canShoot = true;
     private Transform spawnPoint;
+    private int currentWp = 1;
 
     private void Start()
     {
@@ -21,12 +21,34 @@ public class WeaponManager : Singleton<WeaponManager>
     }
     private void Update()
     {
-        GetWeaponInfo();
+        LoadWeapon();
+        ChangeWeapon();
     }
 
-    void GetWeaponInfo()
+    void LoadWeapon()
     {
-        wp.sprite = weaponData.weaponSprite;
+        string resPath = "Weapon/Weapon_" + currentWp;
+        WeaponData = Resources.Load<WeaponSO>(resPath);
+
+        wp.sprite = WeaponData.weaponSprite;
+    }
+
+    void ChangeWeapon()
+    {
+        string[] wpQuantity = Directory.GetFiles("Assets/Resources/Weapon", "*.asset", SearchOption.AllDirectories);
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            currentWp++;
+
+            if (currentWp > wpQuantity.Length)
+            {
+                currentWp = 1;
+            }
+
+            Debug.Log("Weapon: " + currentWp);
+        }
+
     }
 
     private void FixedUpdate()
@@ -48,7 +70,7 @@ public class WeaponManager : Singleton<WeaponManager>
         Debug.Log("Shooting");
 
         canShoot = false;
-        yield return new WaitForSeconds(weaponData.delay);
+        yield return new WaitForSeconds(WeaponData.delay);
         canShoot = true;
     }
 

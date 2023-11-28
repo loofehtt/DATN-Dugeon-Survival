@@ -6,7 +6,7 @@ public class BulletPool : ObjectPool<BulletPool>
 {
     public override Transform Spawn(Vector3 spawnPos, Quaternion rotation)
     {
-        Transform newPrefab = GetObjectFromPool(WeaponManager.Instance.weaponData.bulletPrefab);
+        Transform newPrefab = GetObjectFromPool(WeaponManager.Instance.WeaponData.bulletPrefab);
         newPrefab.SetPositionAndRotation(spawnPos, rotation);
         newPrefab.parent = this.transform;
         newPrefab.gameObject.SetActive(true);
