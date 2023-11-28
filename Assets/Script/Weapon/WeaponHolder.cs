@@ -33,14 +33,14 @@ public class WeaponHolder : MonoBehaviour
         transform.localScale = scale;
 
         //Sorting layer default = 10
-        if (transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180)
+       /* if (transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180)
         {
             weaponSR.sortingOrder = characterSR.sortingOrder - 1;
         }
         else
         {
             weaponSR.sortingOrder = characterSR.sortingOrder + 1;
-        }
+        }*/
     }
 
 

@@ -9,5 +9,14 @@ public class BulletDespawn : Despawn
         BulletPool.Instance.Despawn(transform);
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision != null)
+        {
+            BulletPool.Instance.Despawn(transform);
+        }
+    }
+
 }
 

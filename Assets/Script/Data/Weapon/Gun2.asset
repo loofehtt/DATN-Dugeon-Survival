@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58dd5f00aa8825647908ce43befc8283, type: 3}
   m_Name: Gun2
   m_EditorClassIdentifier: 
-  weaponSprite: {fileID: 1960701475, guid: 8d006de01ebd8ee469e63aa68607f91e, type: 3}
-  bulletPrefab: {fileID: 8516295578975628851, guid: 1a90f41e2a8c5f24c9ccc00ab72b9d71, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 25724b0a4a827a14eba809f1140db1cf, type: 3}
+  bulletPrefab: {fileID: 7333551756281508879, guid: 1a90f41e2a8c5f24c9ccc00ab72b9d71, type: 3}
   explodeFx: {fileID: 7640697885876523678, guid: 26f883b8e076ddb42beebdd309d8b259, type: 3}
   damage: 2
   delay: 0.5
