@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5386311fd5d9a9f4bab82e5b4053ca59, type: 3}
   m_Name: KnightData
   m_EditorClassIdentifier: 
-  movementVelocity: 5
+  moveSpeed: 5
