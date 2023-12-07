@@ -9,12 +9,13 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
+    float attackRange = 2f;
 
     //A* pathfinding
     Path path;
     Seeker seeker;
     int currentWaypoint;
-    bool reachEndOfPath = false;
+    //bool reachEndOfPath = false;
 
     private void Start()
     {
@@ -34,25 +35,22 @@ public class EnemyAI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Moving();
+    }
+
+    private void Moving()
+    {
+        float reached = Vector2.Distance(transform.position, target.position);
+
+        if (reached <= attackRange) return;
+
         if (path == null) return;
 
-        if (currentWaypoint >= path.vectorPath.Count)
-        {
-            reachEndOfPath = true;
-            return;
-        }
-
-        else
-        {
-            reachEndOfPath = false;
-
-        }
-
-        Vector2 direction = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-
-        transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed *Time.deltaTime);
-
         float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+
+        if (currentWaypoint >= path.vectorPath.Count) return;
+
+        transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * Time.deltaTime);
 
         if (distance < nextWaypointDistance)
         {
