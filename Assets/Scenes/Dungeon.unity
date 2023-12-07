@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1196526855}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 10
+    OrthographicSize: 5
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -375,7 +375,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -37918,9 +37918,9 @@ GameObject:
   - component: {fileID: 1970505226}
   - component: {fileID: 1970505228}
   - component: {fileID: 1970505227}
+  - component: {fileID: 1970505231}
   - component: {fileID: 1970505230}
   - component: {fileID: 1970505229}
-  - component: {fileID: 1970505231}
   m_Layer: 0
   m_Name: Slime_0
   m_TagString: Enemy
@@ -38841,6 +38841,10 @@ PrefabInstance:
       propertyPath: weaponData
       value: 
       objectReference: {fileID: 11400000, guid: 48975e0f44283a743920deeedfdf5c2f, type: 2}
+    - target: {fileID: 343963756010748800, guid: 4f33f39ecd6c81e4f9f10fd68b116a77, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8984346484574581602, guid: 4f33f39ecd6c81e4f9f10fd68b116a77, type: 3}
       propertyPath: m_Name
       value: Knight
