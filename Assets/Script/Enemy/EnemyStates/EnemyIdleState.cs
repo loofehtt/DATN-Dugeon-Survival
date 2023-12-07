@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerState
+public class EnemyIdleState : EnemyState
 {
     protected Vector2 input;
-    public PlayerIdleState(Player player, PlayerStateMachine stateMachine, PlayerSO playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+
+    public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, EnemySO enemyData, string animBoolName) : base(enemy, stateMachine, enemyData, animBoolName)
     {
     }
 
@@ -30,7 +31,7 @@ public class PlayerIdleState : PlayerState
 
         if (input != Vector2.zero)
         {
-            stateMachine.ChangeState(player.MoveState);
+            stateMachine.ChangeState(enemy.MoveState);
         }
     }
 

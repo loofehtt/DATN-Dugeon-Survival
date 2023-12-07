@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+
         Anim = GetComponent<Animator>();
         StateMachine.Initialize(IdleState);
         RB = GetComponent<Rigidbody2D>();

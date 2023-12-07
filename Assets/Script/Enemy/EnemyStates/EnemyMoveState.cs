@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerState
+public class EnemyMoveState : EnemyIdleState
 {
-    protected Vector2 input;
-    public PlayerIdleState(Player player, PlayerStateMachine stateMachine, PlayerSO playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+
+    public EnemyMoveState(Enemy enemy, EnemyStateMachine stateMachine, EnemySO playerData, string animBoolName) : base(enemy, stateMachine, playerData, animBoolName)
     {
     }
 
@@ -28,17 +28,15 @@ public class PlayerIdleState : PlayerState
     {
         base.LogicUpdate();
 
-        if (input != Vector2.zero)
+        if (input == Vector2.zero)
         {
-            stateMachine.ChangeState(player.MoveState);
+            stateMachine.ChangeState(enemy.IdleState);
         }
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-
-        input = InputManager.Instance.KeyboardInput.normalized;
 
     }
 }

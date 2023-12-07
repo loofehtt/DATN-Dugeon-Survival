@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5386311fd5d9a9f4bab82e5b4053ca59, type: 3}
-  m_Name: KnightData
+  m_Script: {fileID: 11500000, guid: 9ed77afeb2a96524f8a76dcf739ca070, type: 3}
+  m_Name: Knight
   m_EditorClassIdentifier: 
   moveSpeed: 5
