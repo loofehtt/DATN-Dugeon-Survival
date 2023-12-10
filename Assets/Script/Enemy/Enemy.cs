@@ -75,4 +75,16 @@ public class Enemy : MonoBehaviour
             CurrentWaypoint = 0;
         }
     }
+
+    public void CheckShouldFlip(float xInput)
+    {
+        if (xInput < 0)
+        {
+            SR.flipX = true;
+        }
+        if (xInput > 0)
+        {
+            SR.flipX = false;
+        }
+    }
 }

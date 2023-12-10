@@ -5,7 +5,9 @@ using UnityEngine;
 public class EnemyIdleState : EnemyState
 {
     protected float distance;
-    protected float attackRange = 4f;
+    protected float chaseRange;
+    protected float attackRange;
+    protected Vector2 dir;
 
     public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, EnemySO enemyData, string animBoolName, Player player) : base(enemy, stateMachine, enemyData, animBoolName, player)
     {
@@ -30,10 +32,13 @@ public class EnemyIdleState : EnemyState
     {
         base.LogicUpdate();
 
-        if (distance > attackRange)
+        if (distance < chaseRange && distance > attackRange)
         {
             stateMachine.ChangeState(enemy.MoveState);
         }
+
+        dir = enemy.M_Path.vectorPath[enemy.CurrentWaypoint] - enemy.transform.position;
+
     }
 
     public override void PhysicsUpdate()
@@ -42,5 +47,7 @@ public class EnemyIdleState : EnemyState
 
         distance = Vector2.Distance(enemy.transform.position, player.transform.position);
 
+        chaseRange = enemyData.chaseRange;
+        attackRange = enemyData.attackRange;
     }
 }

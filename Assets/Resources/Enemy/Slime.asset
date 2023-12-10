@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c77b74182af3fd48bd7611547540777, type: 3}
   m_Name: Slime
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 1
+  chaseRange: 15
+  attackRange: 5
+  hp: 10
+  damage: 1
