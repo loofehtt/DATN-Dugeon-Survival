@@ -9,13 +9,15 @@ public class EnemyState
     protected EnemySO enemyData;
 
     private string animBoolName;
+    protected Player player;
 
-    public EnemyState(Enemy enemy, EnemyStateMachine stateMachine, EnemySO enemyData, string animBoolName)
+    public EnemyState(Enemy enemy, EnemyStateMachine stateMachine, EnemySO enemyData, string animBoolName, Player player)
     {
         this.enemy = enemy;
         this.stateMachine = stateMachine;
         this.enemyData = enemyData;
         this.animBoolName = animBoolName;
+        this.player = player;
     }
 
     public virtual void Enter()

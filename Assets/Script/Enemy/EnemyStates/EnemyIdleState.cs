@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyIdleState : EnemyState
 {
-    protected Vector2 input;
+    protected float distance;
+    protected float attackRange = 4f;
 
-    public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, EnemySO enemyData, string animBoolName) : base(enemy, stateMachine, enemyData, animBoolName)
+    public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, EnemySO enemyData, string animBoolName, Player player) : base(enemy, stateMachine, enemyData, animBoolName, player)
     {
     }
 
@@ -29,7 +30,7 @@ public class EnemyIdleState : EnemyState
     {
         base.LogicUpdate();
 
-        if (input != Vector2.zero)
+        if (distance > attackRange)
         {
             stateMachine.ChangeState(enemy.MoveState);
         }
@@ -39,7 +40,7 @@ public class EnemyIdleState : EnemyState
     {
         base.PhysicsUpdate();
 
-        input = InputManager.Instance.KeyboardInput.normalized;
+        distance = Vector2.Distance(enemy.transform.position, player.transform.position);
 
     }
 }
