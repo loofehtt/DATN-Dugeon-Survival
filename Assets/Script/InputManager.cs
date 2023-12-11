@@ -6,11 +6,15 @@ public class InputManager : Singleton<InputManager>
 {
     public Vector2 KeyboardInput {  get; private set; }
     public Vector2 MousePos { get; private set; }
-    public float OnFiring {  get; private set; }
+    public float OnFire {  get; private set; }
+    public bool OnSwitch {  get; private set; }
+    public float ScrollWheel {  get; private set; }
 
     private void Update()
     {
         GetLeftMouseDown();
+        GetRightMouseDown();
+        GetMouseScroll();
     }
 
     private void FixedUpdate()
@@ -32,6 +36,15 @@ public class InputManager : Singleton<InputManager>
 
     protected virtual void GetLeftMouseDown()
     {
-        OnFiring = Input.GetAxis("Fire1");
+        OnFire = Input.GetAxis("Fire1");
+    }
+    protected virtual void GetRightMouseDown()
+    {
+        OnSwitch = Input.GetMouseButton(1);
+    }
+
+    protected virtual void GetMouseScroll()
+    {
+        ScrollWheel = Input.GetAxis("Mouse ScrollWheel");
     }
 }

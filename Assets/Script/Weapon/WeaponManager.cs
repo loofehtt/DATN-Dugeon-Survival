@@ -37,7 +37,7 @@ public class WeaponManager : Singleton<WeaponManager>
     {
         string[] wpQuantity = Directory.GetFiles("Assets/Resources/Weapon", "*.asset", SearchOption.AllDirectories);
 
-        if (Input.GetMouseButtonDown(1))
+        if (InputManager.Instance.OnSwitch)
         {
             currentWp++;
 
@@ -76,6 +76,6 @@ public class WeaponManager : Singleton<WeaponManager>
 
     bool IsShooting()
     {
-        return InputManager.Instance.OnFiring == 1;
+        return InputManager.Instance.OnFire == 1;
     }
 }
