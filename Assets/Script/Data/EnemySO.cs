@@ -10,6 +10,6 @@ public class EnemySO : ScriptableObject
     public float chaseRange = 10f;
     public float attackRange = 4f;
     [Header("Stats")]
-    public int hp = 10;
+    public int maxHp = 10;
     public int damage = 1;
 }

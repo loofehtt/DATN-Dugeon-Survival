@@ -62,12 +62,14 @@ public class EnemyMoveState : EnemyIdleState
         if (enemy.CurrentWaypoint >= enemy.M_Path.vectorPath.Count) return;
 
         enemy.transform.position = Vector2.MoveTowards(enemy.transform.position, enemy.M_Path.vectorPath[enemy.CurrentWaypoint], enemyData.moveSpeed * Time.deltaTime);
-
+        
+        dir = enemy.M_Path.vectorPath[enemy.CurrentWaypoint] - enemy.transform.position;
 
 
         if (distance < 0.1f)
         {
             enemy.CurrentWaypoint++;
         }
+
     }
 }

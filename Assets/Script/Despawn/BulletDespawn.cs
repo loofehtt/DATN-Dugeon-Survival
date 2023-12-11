@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class BulletDespawn : Despawn
 {
+    private DamageSender damageSender;
+    private void Awake()
+    {
+        damageSender = GetComponent<DamageSender>();
+    }
+
     protected override void DespawnObj()
     {
         BulletPool.Instance.Despawn(transform);
@@ -14,10 +20,19 @@ public class BulletDespawn : Despawn
     {
         if (collision != null)
         {
-            Debug.Log("Collison");
+            Debug.Log("Collison: " + collision.gameObject.tag);
+
             BulletPool.Instance.Despawn(transform);
         }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            damageSender.Send(collision.transform);
+
+        }
     }
+
+
 
 }
 

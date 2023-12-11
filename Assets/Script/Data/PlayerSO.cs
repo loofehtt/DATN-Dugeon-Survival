@@ -7,4 +7,6 @@ public class PlayerSO : ScriptableObject
 {
     [Header("Move State")]
     public float moveSpeed = 10f;
+    [Header("Stats")]
+    public int maxHp = 5;
 }

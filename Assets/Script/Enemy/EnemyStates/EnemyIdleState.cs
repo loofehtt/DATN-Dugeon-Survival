@@ -37,8 +37,6 @@ public class EnemyIdleState : EnemyState
             stateMachine.ChangeState(enemy.MoveState);
         }
 
-        dir = enemy.M_Path.vectorPath[enemy.CurrentWaypoint] - enemy.transform.position;
-
     }
 
     public override void PhysicsUpdate()

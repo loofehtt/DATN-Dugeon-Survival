@@ -12,8 +12,7 @@ public class Player : MonoBehaviour
 
     public Animator Anim { get; private set; }
 
-    [SerializeField]
-    private PlayerSO playerData;
+    public PlayerSO playerData { get; private set; }
 
     public Rigidbody2D RB { get; private set; }
 
@@ -23,6 +22,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        playerData = GetComponentInParent<PlayerCtrl>().playerData;
+
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");

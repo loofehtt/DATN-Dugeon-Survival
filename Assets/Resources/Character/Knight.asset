@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Knight
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  maxHp: 5

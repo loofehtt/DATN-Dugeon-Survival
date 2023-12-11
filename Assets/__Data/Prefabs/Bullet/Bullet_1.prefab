@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5464973226120212089}
   - component: {fileID: 3966965739825228315}
-  - component: {fileID: -4802394064992033115}
-  - component: {fileID: 4680925626422951323}
   - component: {fileID: -270488419184839673}
+  - component: {fileID: -4802394064992033115}
+  - component: {fileID: 5047425811313114781}
+  - component: {fileID: 7549540193737076797}
   m_Layer: 0
   m_Name: Bullet_1
   m_TagString: Bullet
@@ -87,32 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-4802394064992033115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3970239759586087779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb4b213f7b51eb40b153dfe922ea613, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
---- !u!114 &4680925626422951323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3970239759586087779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c438488becc02914c9318b623ab99b2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  despawnDelay: 1
 --- !u!58 &-270488419184839673
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -129,3 +104,42 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.28125003
+--- !u!114 &-4802394064992033115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3970239759586087779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb4b213f7b51eb40b153dfe922ea613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+--- !u!114 &5047425811313114781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3970239759586087779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c438488becc02914c9318b623ab99b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  despawnDelay: 1
+--- !u!114 &7549540193737076797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3970239759586087779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34125764836c90d42a854749ceda0afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1

@@ -14,8 +14,7 @@ public class Enemy : MonoBehaviour
 
     public Animator Anim { get; private set; }
 
-    [SerializeField]
-    private EnemySO enemyData;
+    public EnemySO enemyData { get; private set; }
 
     public Rigidbody2D RB { get; private set; }
 
@@ -31,8 +30,9 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        Player = FindAnyObjectByType<Player>();
+        enemyData = GetComponentInParent<EnemyCtrl>().enemyData;
 
+        Player = FindAnyObjectByType<Player>();
         StateMachine = new EnemyStateMachine();
         IdleState = new EnemyIdleState(this, StateMachine, enemyData, "idle", Player);
         MoveState = new EnemyMoveState(this, StateMachine, enemyData, "move", Player);
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
     {
         if (Seeker.IsDone())
         {
-            Seeker.StartPath(RB.position, Player.transform.position, OnPathComplete);
+            Seeker.StartPath(transform.position, Player.transform.position, OnPathComplete);
         }
     }
 
