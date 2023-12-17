@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
-    //component
-    [SerializeField] private SpriteRenderer characterSR;
-    [SerializeField] private SpriteRenderer weaponSR;
-
     //variable
     private Vector2 PointerPos;
+    private Vector2 direction;
 
     private void FixedUpdate()
     {
-        //Rotate Weapon
-        PointerPos = InputManager.Instance.MousePos;
+        RotateWp();
+        FlipWp();
 
-        Vector2 direction = (PointerPos - (Vector2)transform.position).normalized;
-        transform.right = direction;
+    }
 
+    private void FlipWp()
+    {
         //Flip weapon
         Vector2 scale = transform.localScale;
 
@@ -31,17 +29,14 @@ public class WeaponHolder : MonoBehaviour
             scale.y = 1;
         }
         transform.localScale = scale;
-
-        //Sorting layer default = 10
-       /* if (transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180)
-        {
-            weaponSR.sortingOrder = characterSR.sortingOrder - 1;
-        }
-        else
-        {
-            weaponSR.sortingOrder = characterSR.sortingOrder + 1;
-        }*/
     }
 
+    private void RotateWp()
+    {
+        //Rotate Weapon
+        PointerPos = InputManager.Instance.MousePos;
 
+        direction = (PointerPos - (Vector2)transform.position).normalized;
+        transform.right = direction;
+    }
 }

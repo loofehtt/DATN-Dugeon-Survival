@@ -40,7 +40,7 @@ public class InputManager : Singleton<InputManager>
     }
     protected virtual void GetRightMouseDown()
     {
-        OnSwitch = Input.GetMouseButton(1);
+        OnSwitch = Input.GetMouseButtonDown(1);
     }
 
     protected virtual void GetMouseScroll()
