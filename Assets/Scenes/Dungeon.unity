@@ -47671,7 +47671,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 5ee5dba17ef57434da299d69cd6fd66f, type: 2}
-  damageSender: {fileID: 0}
 --- !u!114 &1998537372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49357,6 +49356,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331133104}
     m_Modifications:
+    - target: {fileID: 3196222293138385834, guid: 145f10773d1be2647bbc47c362de236a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9159098558335723827, guid: 145f10773d1be2647bbc47c362de236a, type: 3}
       propertyPath: m_Name
       value: Slime (1)

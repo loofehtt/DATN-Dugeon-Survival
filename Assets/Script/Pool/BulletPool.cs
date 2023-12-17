@@ -17,7 +17,7 @@ public class BulletPool : ObjectPool<BulletPool>
     {
         poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
-        FxPool.Instance.Spawn(obj.transform.position, obj.transform.rotation);
+        //FxPool.Instance.Spawn(obj.transform.position, obj.transform.rotation);
     }
 
 }

@@ -23,6 +23,8 @@ public class BulletDespawn : Despawn
             Debug.Log("Collison: " + collision.gameObject.tag);
 
             BulletPool.Instance.Despawn(transform);
+            FxPool.Instance.Spawn(transform.position, transform.rotation);
+
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
