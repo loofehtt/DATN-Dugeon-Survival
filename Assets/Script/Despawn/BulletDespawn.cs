@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletDespawn : Despawn
 {
     private DamageSender damageSender;
+    [SerializeField] private Transform explodeFx;
     private void Awake()
     {
         damageSender = GetComponent<DamageSender>();
@@ -23,7 +24,7 @@ public class BulletDespawn : Despawn
             Debug.Log("Collison: " + collision.gameObject.tag);
 
             BulletPool.Instance.Despawn(transform);
-            FxPool.Instance.Spawn(transform.position, transform.rotation);
+            FxPool.Instance.Spawn(explodeFx.name, transform.position, transform.rotation);
 
         }
 

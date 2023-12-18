@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despawnDelay: 1
+  explodeFx: {fileID: 7640697885876523678, guid: 26f883b8e076ddb42beebdd309d8b259, type: 3}
 --- !u!58 &-3306732470802843009
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despawnDelay: 1
+  explodeFx: {fileID: 9050203063351617485, guid: 580ede0843a7c394f8adf6bdd4e7a803, type: 3}
 --- !u!114 &7549540193737076797
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -65,8 +65,16 @@ public class WeaponManager : Singleton<WeaponManager>
 
         Vector3 spawnPos = spawnPoint.position;
         Quaternion rotation = transform.parent.rotation;
-        //Transform newBullet = Instantiate(weaponData.bulletPrefab, spawnPos, rotation);
-        Transform newBullet = BulletPool.Instance.Spawn(spawnPos, rotation);
+
+        if (currentWp == 1)
+        {
+            Transform newBullet = BulletPool.Instance.Spawn(BulletPool.bulletOne, spawnPos, rotation);
+        }
+        else
+        {
+            Transform newBullet = BulletPool.Instance.Spawn(BulletPool.bulletTwo, spawnPos, rotation);
+        }
+
         Debug.Log("Shooting");
 
         canShoot = false;

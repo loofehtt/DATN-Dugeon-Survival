@@ -733,6 +733,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolObjs: []
+  prefabs:
+  - {fileID: 9050203063351617485, guid: 580ede0843a7c394f8adf6bdd4e7a803, type: 3}
+  - {fileID: 7640697885876523678, guid: 26f883b8e076ddb42beebdd309d8b259, type: 3}
+  - {fileID: 7581314470910768023, guid: 601ba07e49add3746bf372ed74f8c9d5, type: 3}
 --- !u!213 &261849758
 Sprite:
   m_ObjectHideFlags: 0
@@ -3848,6 +3852,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolObjs: []
+  prefabs:
+  - {fileID: 5464973226120212089, guid: 32b27266e3bfe164b8198d32aad487f1, type: 3}
+  - {fileID: 7333551756281508879, guid: 1a90f41e2a8c5f24c9ccc00ab72b9d71, type: 3}
+  - {fileID: 7333551756281508879, guid: 1a90f41e2a8c5f24c9ccc00ab72b9d71, type: 3}
 --- !u!1 &729839232
 GameObject:
   m_ObjectHideFlags: 3

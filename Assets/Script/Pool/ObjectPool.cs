@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class ObjectPool<T> : Singleton<T> where T : MonoBehaviour
 {
     [SerializeField] protected List<Transform> poolObjs;
+    [SerializeField] protected List<Transform> prefabs;
 
     protected virtual Transform GetObjectFromPool(Transform prefab)
     {
@@ -22,6 +23,35 @@ public abstract class ObjectPool<T> : Singleton<T> where T : MonoBehaviour
         return newPrefab;
     }
 
-    public abstract Transform Spawn(Vector3 spawnPos, Quaternion rotation);
-    public abstract void Despawn(Transform obj);
+    public virtual Transform GetPrefabByName(string prefabName)
+    {
+        foreach (Transform prefab in prefabs)
+        {
+            if (prefab.name == prefabName) return prefab;
+        }
+
+        return null;
+    }
+    public virtual Transform Spawn(string prefabName, Vector3 spawnPos, Quaternion rotation)
+    {
+        Transform prefab = GetPrefabByName(prefabName);
+        if (prefab == null)
+        {
+            Debug.LogWarning("Not Found: " + prefabName);
+            return null;
+        }
+
+        Transform newPrefab = GetObjectFromPool(prefab);
+        newPrefab.SetPositionAndRotation(spawnPos, rotation);
+        newPrefab.parent = this.transform;
+        newPrefab.gameObject.SetActive(true);
+        return newPrefab;
+    }
+
+    public virtual void Despawn(Transform obj)
+    {
+        poolObjs.Add(obj);
+        obj.gameObject.SetActive(false);
+    }
+
 }

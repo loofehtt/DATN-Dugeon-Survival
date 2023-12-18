@@ -12,4 +12,6 @@ public class EnemySO : ScriptableObject
     [Header("Stats")]
     public int maxHp = 10;
     public int damage = 1;
+    [Header("Attack")]
+    public float attackDelay = 2f;
 }
