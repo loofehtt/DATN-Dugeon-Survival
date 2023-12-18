@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyIdleState
 {
-    private bool canShoot = true;
+    private float attackTimer = 2f;
 
     public EnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, EnemySO enemyData, string animBoolName, Player player) : base(enemy, stateMachine, enemyData, animBoolName, player)
     {
@@ -32,7 +32,7 @@ public class EnemyAttackState : EnemyIdleState
 
         if (distance > attackRange)
         {
-            stateMachine.ChangeState(enemy.IdleState);
+            stateMachine.ChangeState(enemy.MoveState);
         }
 
         //flip sprite
@@ -45,22 +45,22 @@ public class EnemyAttackState : EnemyIdleState
     {
         base.PhysicsUpdate();
 
+        Shooting();
+        attackRange = enemyData.attackRange;
+
     }
 
-    IEnumerator Shooting()
+    void Shooting()
     {
+        attackTimer += Time.fixedDeltaTime;
 
-        if (!canShoot) yield break;
+        if (attackTimer < enemyData.attackDelay) return;
+        attackTimer = 0;
 
         Vector3 spawnPos = enemy.transform.position;
         Quaternion rotation = enemy.transform.rotation;
-        //Transform newBullet = Instantiate(weaponData.bulletPrefab, spawnPos, rotation);
-        Transform newBullet = BulletPool.Instance.Spawn("Enemy_Bullet",spawnPos, rotation);
-        Debug.Log("Shooting");
-
-        canShoot = false;
-        yield return new WaitForSeconds(enemyData.attackDelay);
-        canShoot = true;
+        Transform newBullet = BulletPool.Instance.Spawn("Enemy_Bullet", spawnPos, rotation);
+        newBullet.GetComponent<EnemyBulletFly>().dir = (player.transform.position - newBullet.transform.position).normalized;
     }
 
 }

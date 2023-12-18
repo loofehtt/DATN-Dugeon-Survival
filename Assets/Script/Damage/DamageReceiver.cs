@@ -27,7 +27,7 @@ public abstract class DamageReceiver : MonoBehaviour
     {
         hp = maxHp;
         isDead = false;
-        Debug.Log("hp: " + hp);
+        //Debug.Log("hp: " + hp);
     }
 
     public virtual void Add(int add)

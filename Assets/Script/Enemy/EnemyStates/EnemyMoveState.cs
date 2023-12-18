@@ -36,7 +36,7 @@ public class EnemyMoveState : EnemyIdleState
         if (distance <= attackRange)
         {
             //attack state
-            stateMachine.ChangeState(enemy.IdleState);
+            stateMachine.ChangeState(enemy.AttackState);
         }
 
         //flip sprite
@@ -50,6 +50,9 @@ public class EnemyMoveState : EnemyIdleState
         base.PhysicsUpdate();
 
         Moving();
+
+        attackRange = enemyData.attackRange;
+
     }
 
     private void Moving()

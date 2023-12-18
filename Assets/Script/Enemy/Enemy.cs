@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
 
     public EnemyMoveState MoveState { get; private set; }
 
+    public EnemyAttackState AttackState { get; private set; }
+
     public Animator Anim { get; private set; }
 
     public EnemySO enemyData { get; private set; }
@@ -36,6 +38,7 @@ public class Enemy : MonoBehaviour
         StateMachine = new EnemyStateMachine();
         IdleState = new EnemyIdleState(this, StateMachine, enemyData, "idle", Player);
         MoveState = new EnemyMoveState(this, StateMachine, enemyData, "move", Player);
+        AttackState = new EnemyAttackState(this, StateMachine, enemyData, "attack", Player);
     }
 
     private void Start()

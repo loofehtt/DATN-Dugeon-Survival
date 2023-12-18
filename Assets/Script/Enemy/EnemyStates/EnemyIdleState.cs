@@ -37,6 +37,11 @@ public class EnemyIdleState : EnemyState
             stateMachine.ChangeState(enemy.MoveState);
         }
 
+        if (distance <= attackRange)
+        {
+            stateMachine.ChangeState(enemy.AttackState);
+        }
+
     }
 
     public override void PhysicsUpdate()

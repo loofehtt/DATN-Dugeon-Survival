@@ -25,7 +25,7 @@ public class EnemyState
         DoChecks();
         enemy.Anim.SetBool(animBoolName, true);
 
-        //Debug.Log("Enemy: " + animBoolName);
+        Debug.Log("Enemy: " + animBoolName);
     }
 
     public virtual void Exit()
