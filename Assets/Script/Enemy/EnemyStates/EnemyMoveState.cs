@@ -9,11 +9,6 @@ public class EnemyMoveState : EnemyIdleState
     {
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
     public override void Enter()
     {
         base.Enter();

@@ -22,7 +22,6 @@ public class EnemyState
 
     public virtual void Enter()
     {
-        DoChecks();
         enemy.Anim.SetBool(animBoolName, true);
 
         Debug.Log("Enemy: " + animBoolName);
@@ -41,11 +40,7 @@ public class EnemyState
 
     public virtual void PhysicsUpdate()
     {
-        DoChecks();
     }
 
-    public virtual void DoChecks()
-    {
-
-    }
+    
 }

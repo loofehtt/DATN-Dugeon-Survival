@@ -13,11 +13,6 @@ public class EnemyIdleState : EnemyState
     {
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
     public override void Enter()
     {
         base.Enter();
@@ -32,7 +27,7 @@ public class EnemyIdleState : EnemyState
     {
         base.LogicUpdate();
 
-        if (distance < chaseRange && distance > attackRange)
+        if (distance <= chaseRange && distance > attackRange)
         {
             stateMachine.ChangeState(enemy.MoveState);
         }
