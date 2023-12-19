@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletDespawn : Despawn
+public class EnemyBulletDespawn : Despawn
 {
     private DamageSender damageSender;
     [SerializeField] private Transform explodeFx;
@@ -17,24 +17,14 @@ public class BulletDespawn : Despawn
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collison: " + collision.gameObject.tag);
-
+            damageSender.Send(collision.transform);
             BulletPool.Instance.Despawn(transform);
             FxPool.Instance.Spawn(explodeFx.name, transform.position, transform.rotation);
 
         }
-
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            damageSender.Send(collision.transform);
-
-        }
     }
-
-
 }
-

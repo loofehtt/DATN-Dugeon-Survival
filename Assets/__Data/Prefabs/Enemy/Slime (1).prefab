@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8889088117571059988}
   - component: {fileID: 129392049}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DamageReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9159098558335723831}
   - component: {fileID: 986166654}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 1970505234}
   - component: {fileID: 9159098559668197959}
   - component: {fileID: 9159098559668197979}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}

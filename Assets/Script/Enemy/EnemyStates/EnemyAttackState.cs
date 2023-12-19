@@ -39,10 +39,11 @@ public class EnemyAttackState : EnemyIdleState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+        if (!enemyData.isMelee)
+        {
+            Shooting();
 
-        Shooting();
-        attackRange = enemyData.attackRange;
-
+        }
     }
 
     void Shooting()

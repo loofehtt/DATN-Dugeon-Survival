@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class EnemyIdleState : EnemyState
 {
-    protected float distance;
     protected float chaseRange;
     protected float attackRange;
     protected Vector2 dir;
-
+    protected float distance;
     public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, EnemySO enemyData, string animBoolName, Player player) : base(enemy, stateMachine, enemyData, animBoolName, player)
     {
     }
@@ -16,6 +15,8 @@ public class EnemyIdleState : EnemyState
     public override void Enter()
     {
         base.Enter();
+        distance = Vector2.Distance(enemy.transform.position, player.transform.position);
+
     }
 
     public override void Exit()
@@ -26,7 +27,6 @@ public class EnemyIdleState : EnemyState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
         if (distance <= chaseRange && distance > attackRange)
         {
             stateMachine.ChangeState(enemy.MoveState);

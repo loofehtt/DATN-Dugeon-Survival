@@ -28,7 +28,7 @@ public class EnemyMoveState : EnemyIdleState
             stateMachine.ChangeState(enemy.IdleState);
         }
 
-        if (distance <= attackRange)
+        else if (distance <= attackRange)
         {
             //attack state
             stateMachine.ChangeState(enemy.AttackState);
@@ -45,8 +45,6 @@ public class EnemyMoveState : EnemyIdleState
         base.PhysicsUpdate();
 
         Moving();
-
-        attackRange = enemyData.attackRange;
 
     }
 
