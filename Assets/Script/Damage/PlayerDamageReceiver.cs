@@ -7,7 +7,8 @@ public class PlayerDamageReceiver : DamageReceiver
     protected override void LoadComponents()
     {
         maxHp = GetComponentInParent<PlayerCtrl>().playerData.maxHp;
-       
+        healthDisplay = GetComponentInParent<PlayerCtrl>().healthDisplay;
+
     }
 
     protected override void OnDead()

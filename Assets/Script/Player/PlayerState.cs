@@ -22,7 +22,6 @@ public class PlayerState
 
     public virtual void Enter()
     {
-        DoChecks();
         player.Anim.SetBool(animBoolName, true);
         //startTime = Time.time;
 
@@ -42,11 +41,6 @@ public class PlayerState
 
     public virtual void PhysicsUpdate()
     {
-        DoChecks();
     }
 
-    public virtual void DoChecks()
-    {
-
-    }
 }

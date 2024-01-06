@@ -77,8 +77,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1317977226, guid: 5a3cb5eb8aa49b04d80f235c2f824d76, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 426881172, guid: 44ba99d07bf85a545991bdc843fcf691, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -166,4 +166,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despawnDelay: 2
-  explodeFx: {fileID: 9050203063351617485, guid: 580ede0843a7c394f8adf6bdd4e7a803, type: 3}
+  explodeFx: {fileID: 8488978048505894791, guid: 9d0df2299a56f18468a22576abbc511c, type: 3}

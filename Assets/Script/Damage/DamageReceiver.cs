@@ -8,7 +8,7 @@ public abstract class DamageReceiver : MonoBehaviour
     [SerializeField] protected int hp;
     [SerializeField] protected int maxHp;
     [SerializeField] protected bool isDead = false;
-
+    protected HealthDisplay healthDisplay;
     public double Hp => hp;
     public double MaxHp => maxHp;
 
@@ -35,6 +35,7 @@ public abstract class DamageReceiver : MonoBehaviour
         if (isDead) return;
 
         hp += add;
+        healthDisplay.UpdateHealthBar(hp, maxHp);
         if (hp > maxHp) hp = maxHp;
     }
 
@@ -43,6 +44,7 @@ public abstract class DamageReceiver : MonoBehaviour
         if (isDead) return;
 
         hp -= deduct;
+        healthDisplay.UpdateHealthBar(hp, maxHp);
         if (hp < 0) hp = 0;
         CheckIsDead();
         Debug.Log(deduct);

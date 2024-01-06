@@ -5,4 +5,5 @@ using UnityEngine;
 public class EnemyCtrl : MonoBehaviour
 {
     public EnemySO enemyData;
+    public HealthDisplay healthDisplay;
 }
