@@ -51016,6 +51016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 5ee5dba17ef57434da299d69cd6fd66f, type: 2}
   healthDisplay: {fileID: 1282822423}
+  playerDamageReceiver: {fileID: 1539620895}
 --- !u!114 &1998537372
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,4 +6,5 @@ public class PlayerCtrl : MonoBehaviour
 {
     public PlayerSO playerData;
     public HealthDisplay healthDisplay;
+    public PlayerDamageReceiver playerDamageReceiver;
 }

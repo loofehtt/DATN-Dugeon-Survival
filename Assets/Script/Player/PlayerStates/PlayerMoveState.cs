@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMoveState : PlayerIdleState
 {
 
-    public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerSO playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+    public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerSO playerData, PlayerDamageReceiver damageReceiver, string animBoolName) : base(player, stateMachine, playerData, damageReceiver, animBoolName)
     {
     }
 
@@ -22,6 +22,11 @@ public class PlayerMoveState : PlayerIdleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+        if (player.DamageReceiver.Hp == 0)
+        {
+            stateMachine.ChangeState(player.DeathState);
+        }
 
         player.SetVelocity(input * playerData.moveSpeed);
 

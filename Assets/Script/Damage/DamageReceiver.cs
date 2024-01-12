@@ -35,7 +35,7 @@ public abstract class DamageReceiver : MonoBehaviour
     {
         hp = maxHp;
         healthDisplay.UpdateHealthBar(hp, maxHp);
-
+        isDead = false;
         Debug.Log("Healed");
     }
 

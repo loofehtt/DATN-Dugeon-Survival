@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerIdleState : PlayerState
 {
     protected Vector2 input;
-    public PlayerIdleState(Player player, PlayerStateMachine stateMachine, PlayerSO playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+    public PlayerIdleState(Player player, PlayerStateMachine stateMachine, PlayerSO playerData, PlayerDamageReceiver damageReceiver, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
 
@@ -22,6 +22,11 @@ public class PlayerIdleState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+        if(player.DamageReceiver.Hp == 0 )
+        {
+            stateMachine.ChangeState(player.DeathState);
+        }
 
         if (input != Vector2.zero)
         {

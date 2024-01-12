@@ -10,23 +10,29 @@ public class Player : MonoBehaviour
 
     public PlayerMoveState MoveState { get; private set; }
 
+    public PlayerDeathState DeathState { get; private set; }
+
     public Animator Anim { get; private set; }
 
-    public PlayerSO playerData { get; private set; }
+    public PlayerSO PlayerData { get; private set; }
 
     public Rigidbody2D RB { get; private set; }
 
     public SpriteRenderer SR { get; private set; }
 
+    public PlayerDamageReceiver DamageReceiver { get; private set; }
+
     private Vector2 workspace;
 
     private void Awake()
     {
-        playerData = GetComponentInParent<PlayerCtrl>().playerData;
+        PlayerData = GetComponentInParent<PlayerCtrl>().playerData;
+        DamageReceiver = GetComponentInParent<PlayerCtrl>().playerDamageReceiver;
 
         StateMachine = new PlayerStateMachine();
-        IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
-        MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
+        IdleState = new PlayerIdleState(this, StateMachine, PlayerData, DamageReceiver, "idle");
+        MoveState = new PlayerMoveState(this, StateMachine, PlayerData, DamageReceiver, "move");
+        DeathState = new PlayerDeathState(this, StateMachine, PlayerData, DamageReceiver, "death");
     }
 
     private void Start()
