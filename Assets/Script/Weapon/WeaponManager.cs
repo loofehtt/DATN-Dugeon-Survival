@@ -12,17 +12,19 @@ public class WeaponManager : Singleton<WeaponManager>
     //Variable
     private bool canShoot = true;
     private Transform spawnPoint;
-    private int currentWp = 1;
+    public int currentWp = 1;
+    public string[] wpQuantity { get; private set; }
 
     private void Start()
     {
+        wpQuantity = Directory.GetFiles("Assets/Resources/Weapon", "*.asset", SearchOption.AllDirectories);
         wp = GetComponent<SpriteRenderer>();
         spawnPoint = transform.Find("SpawnPoint");
     }
     private void Update()
     {
         LoadWeapon();
-        ChangeWeapon();
+        //ChangeWeapon();
     }
 
     void LoadWeapon()
@@ -35,8 +37,6 @@ public class WeaponManager : Singleton<WeaponManager>
 
     void ChangeWeapon()
     {
-        string[] wpQuantity = Directory.GetFiles("Assets/Resources/Weapon", "*.asset", SearchOption.AllDirectories);
-
         if (InputManager.Instance.OnSwitch)
         {
             currentWp++;

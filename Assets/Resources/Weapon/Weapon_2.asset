@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSprite: {fileID: 21300000, guid: 25724b0a4a827a14eba809f1140db1cf, type: 3}
   damage: 2
-  delay: 0.2
+  delay: 0.5

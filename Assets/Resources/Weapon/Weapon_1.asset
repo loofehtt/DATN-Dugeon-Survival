@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: Weapon_1
   m_EditorClassIdentifier: 
   weaponSprite: {fileID: 21300000, guid: 8ce761a131409d64f8ffddcdd4cb07b1, type: 3}
-  bulletPrefab: {fileID: 5464973226120212089, guid: 32b27266e3bfe164b8198d32aad487f1, type: 3}
-  explodeFx: {fileID: 9050203063351617485, guid: 580ede0843a7c394f8adf6bdd4e7a803, type: 3}
   damage: 1
-  delay: 0.2
+  delay: 0.5
