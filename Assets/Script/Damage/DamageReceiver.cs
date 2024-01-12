@@ -36,6 +36,7 @@ public abstract class DamageReceiver : MonoBehaviour
         hp = maxHp;
         healthDisplay.UpdateHealthBar(hp, maxHp);
         isDead = false;
+        WeaponManager.Instance.canShoot = true;
         Debug.Log("Healed");
     }
 

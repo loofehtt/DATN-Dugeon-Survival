@@ -10,14 +10,14 @@ public class WeaponManager : Singleton<WeaponManager>
     private SpriteRenderer wp;
 
     //Variable
-    private bool canShoot = true;
+    public WeaponSO[] Weapons;
     private Transform spawnPoint;
-    public int currentWp = 1;
-    public string[] wpQuantity { get; private set; }
+    public bool canShoot = true;
+    public int currentWp;
 
     private void Start()
     {
-        wpQuantity = Directory.GetFiles("Assets/Resources/Weapon", "*.asset", SearchOption.AllDirectories);
+        currentWp = 0;
         wp = GetComponent<SpriteRenderer>();
         spawnPoint = transform.Find("SpawnPoint");
     }
@@ -29,8 +29,7 @@ public class WeaponManager : Singleton<WeaponManager>
 
     void LoadWeapon()
     {
-        string resPath = "Weapon/Weapon_" + currentWp;
-        WeaponData = Resources.Load<WeaponSO>(resPath);
+        WeaponData = Weapons[currentWp];
 
         wp.sprite = WeaponData.weaponSprite;
     }
@@ -41,9 +40,10 @@ public class WeaponManager : Singleton<WeaponManager>
         {
             currentWp++;
 
-            if (currentWp > wpQuantity.Length)
+            if (currentWp > Weapons.Length - 1)
             {
-                currentWp = wpQuantity.Length;
+                currentWp = Weapons.Length - 1;
+                Debug.Log("This is the strongest weapon");
             }
 
             Debug.Log("Weapon: " + currentWp);
@@ -66,16 +66,9 @@ public class WeaponManager : Singleton<WeaponManager>
         Vector3 spawnPos = spawnPoint.position;
         Quaternion rotation = transform.parent.rotation;
 
-        if (currentWp == 1)
-        {
-            Transform newBullet = BulletPool.Instance.Spawn(BulletPool.bulletOne, spawnPos, rotation);
-        }
-        else
-        {
-            Transform newBullet = BulletPool.Instance.Spawn(BulletPool.bulletTwo, spawnPos, rotation);
-        }
+        Transform newBullet = BulletPool.Instance.Spawn(BulletPool.playerBullet + (currentWp + 1).ToString(), spawnPos, rotation);
 
-        Debug.Log("Shooting");
+        //Debug.Log("Shooting");
 
         canShoot = false;
         yield return new WaitForSeconds(WeaponData.delay);

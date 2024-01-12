@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     public void UpgradeWP()
     {
         int currentWp = WeaponManager.Instance.currentWp;
-        int wpQuantity = WeaponManager.Instance.wpQuantity.Length;
+        int wpQuantity = WeaponManager.Instance.Weapons.Length-1;
 
         WeaponManager.Instance.currentWp = currentWp + 1;
 
