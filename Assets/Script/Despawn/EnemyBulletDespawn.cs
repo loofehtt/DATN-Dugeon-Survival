@@ -19,12 +19,13 @@ public class EnemyBulletDespawn : Despawn
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Wall"))
         {
             damageSender.Send(collision.transform);
             BulletPool.Instance.Despawn(transform);
             FxPool.Instance.Spawn(explodeFx.name, transform.position, transform.rotation);
 
         }
+
     }
 }

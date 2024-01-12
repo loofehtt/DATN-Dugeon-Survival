@@ -30,7 +30,6 @@ public class PlayerMoveState : PlayerIdleState
 
         player.SetVelocity(input * playerData.moveSpeed);
 
-        player.CheckShouldFlip(input.x);
 
         if (input == Vector2.zero)
         {

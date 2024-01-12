@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyAttackState : EnemyIdleState
 {
     private float attackTimer = 2f;
+    protected Vector2 dir;
 
     public EnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, EnemySO enemyData, string animBoolName, Player player) : base(enemy, stateMachine, enemyData, animBoolName, player)
     {
@@ -30,20 +31,22 @@ public class EnemyAttackState : EnemyIdleState
             stateMachine.ChangeState(enemy.MoveState);
         }
 
-        //flip sprite
-
-        enemy.CheckShouldFlip(dir.x);
-
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
         if (!enemyData.isMelee)
         {
             Shooting();
 
         }
+
+        //flip sprite
+        dir = player.transform.position - enemy.transform.position;
+        enemy.CheckShouldFlip(dir.x);
+
     }
 
     void Shooting()

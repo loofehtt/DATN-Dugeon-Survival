@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public PlayerDamageReceiver DamageReceiver { get; private set; }
 
     private Vector2 workspace;
+ 
 
     private void Awake()
     {
@@ -52,6 +53,8 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
+    
+
     }
 
     public void SetVelocity(Vector2 velocity)
@@ -60,13 +63,14 @@ public class Player : MonoBehaviour
         RB.velocity = workspace;
     }
 
-    public void CheckShouldFlip(float xInput)
+    public void ShouldFlip(Vector3 mouseToChar)
     {
-        if (xInput < 0)
+        
+        if (mouseToChar.x < 0)
         {
             SR.flipX = true;
         }
-        if (xInput > 0)
+        if (mouseToChar.x > 0)
         {
             SR.flipX = false;
         }

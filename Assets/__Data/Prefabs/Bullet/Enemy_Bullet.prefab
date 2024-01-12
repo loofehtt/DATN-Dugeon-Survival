@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2298ffc503a43964786dbd5e5c986c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
   dir: {x: 0, y: 0}
 --- !u!114 &1769695662741423176
 MonoBehaviour:
@@ -165,5 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82077f49a0543f44acf76aca4fb36a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawnDelay: 2
+  despawnDelay: 1.5
   explodeFx: {fileID: 8488978048505894791, guid: 9d0df2299a56f18468a22576abbc511c, type: 3}

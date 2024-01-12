@@ -6,7 +6,6 @@ public class EnemyIdleState : EnemyState
 {
     protected float chaseRange;
     protected float attackRange;
-    protected Vector2 dir;
     protected float distance;
     public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, EnemySO enemyData, string animBoolName, Player player) : base(enemy, stateMachine, enemyData, animBoolName, player)
     {
