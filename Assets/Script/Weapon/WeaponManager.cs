@@ -24,7 +24,7 @@ public class WeaponManager : Singleton<WeaponManager>
     private void Update()
     {
         LoadWeapon();
-        //ChangeWeapon();
+        UpgradeWeapon();
     }
 
     void LoadWeapon()
@@ -35,7 +35,7 @@ public class WeaponManager : Singleton<WeaponManager>
         wp.sprite = WeaponData.weaponSprite;
     }
 
-    void ChangeWeapon()
+    void UpgradeWeapon()
     {
         if (InputManager.Instance.OnSwitch)
         {
@@ -43,7 +43,7 @@ public class WeaponManager : Singleton<WeaponManager>
 
             if (currentWp > wpQuantity.Length)
             {
-                currentWp = 1;
+                currentWp = wpQuantity.Length;
             }
 
             Debug.Log("Weapon: " + currentWp);

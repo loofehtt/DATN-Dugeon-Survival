@@ -31,4 +31,6 @@ public class MainMenu : MonoBehaviour
 
         Debug.Log("Weapon: " + currentWp);
     }
+
+
 }

@@ -26,8 +26,17 @@ public abstract class DamageReceiver : MonoBehaviour
     public virtual void Reborn()
     {
         hp = maxHp;
+        healthDisplay.UpdateHealthBar(hp, maxHp);
         isDead = false;
         //Debug.Log("hp: " + hp);
+    }
+
+    public virtual void Heal()
+    {
+        hp = maxHp;
+        healthDisplay.UpdateHealthBar(hp, maxHp);
+
+        Debug.Log("Healed");
     }
 
     public virtual void Add(int add)

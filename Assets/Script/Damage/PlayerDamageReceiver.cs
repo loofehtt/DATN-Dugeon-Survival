@@ -17,4 +17,5 @@ public class PlayerDamageReceiver : DamageReceiver
         Debug.Log("dead");
 
     }
+
 }
