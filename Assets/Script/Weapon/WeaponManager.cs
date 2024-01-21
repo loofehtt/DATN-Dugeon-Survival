@@ -42,7 +42,7 @@ public class WeaponManager : Singleton<WeaponManager>
 
             if (currentWp > Weapons.Length - 1)
             {
-                currentWp = Weapons.Length - 1;
+                currentWp = 0;
                 Debug.Log("This is the strongest weapon");
             }
 
